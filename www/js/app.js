@@ -3,7 +3,7 @@ var app = angular.module('taut', ['ionic', 'ngResource'])
 app.constant('app', {
     version: Date.now(),
     apiInfo: {
-        url   : 'http://localhost:8100',
+        url   : 'http://tautapp.zeuik.com',
         token : 'zM17y8Qry99WOEsOz0pAUQmP_AXDVthN_Y-zb1AuC5w='
     }
 })
