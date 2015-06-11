@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-content>
+        <div class="list card" ng-repeat="image in images">
+            <div class="item">
+                <h2>{{ image.user.name }}</h2>
+                <p>@{{ image.user.screen_name }}</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{ image.media_url }}">
+                <p>
+                    {{ image.tweet.text }}
+                </p>
+            </div>
+        </div>
+        <div class="padding">
+            <button class="button button-full button-positive" ng-if="hasMore" ng-click="loadMore()">
+                - Load more -
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

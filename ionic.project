@@ -1,0 +1,10 @@
+{
+  "name": "TautApp",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://tautapp.zeuik.com/api"
+    }
+  ]
+}
