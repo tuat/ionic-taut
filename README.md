@@ -9,7 +9,7 @@ Platform
 
 Install Android SDK
 
-    /Users/zeuxis/Documents/AndroidSDK/tools/android
+    /path/to/android/sdk/tools/android
 
 Error fix
 
