@@ -69,8 +69,9 @@ app.controller('AboutCtrl', function(app, $scope, $cordovaInAppBrowser) {
     }
 });
 
-app.controller('MediaCtrl', function(app, $scope, $stateParams) {
-    $scope.image = {};
+app.controller('MediaCtrl', function(app, $scope, $stateParams, $filter) {
+    $scope.image  = {};
+    $scope.medias = [];
 
     app.restAPI.media.get({
         'token': app.apiInfo.token,
@@ -79,10 +80,9 @@ app.controller('MediaCtrl', function(app, $scope, $stateParams) {
         var image  = http.image,
             medias = http.medias;
 
-        medias.shift(); // remove 1st photo
-
         $scope.image  = image;
-        $scope.medias = medias;
+        $scope.medias = $filter('chunk')(medias, 2);
+        console.log($scope.medias);
     }, function(http) {
         app.toast.error('Can not load the target image');
     });
