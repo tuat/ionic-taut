@@ -24,34 +24,7 @@ app.run(function($ionicPlatform, app, restAPI, toast, urlParams) {
     app.urlParams = urlParams;
 })
 
-app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    $stateProvider
-        .state('tabs', {
-            url: "/tab",
-            abstract: true,
-            templateUrl: "partials/tabs.html"
-        })
-        .state('tabs.home', {
-            url: '/home',
-            views: {
-                'home-tab': {
-                    templateUrl: 'tabs/home.html',
-                    controller: 'HomeCtrl'
-                }
-            }
-        })
-        .state('tabs.about', {
-            url: '/about',
-            views: {
-                'about-tab': {
-                    templateUrl: 'tabs/about.html',
-                    controller: 'AboutCtrl'
-                }
-            }
-        })
-
-    $urlRouterProvider.otherwise("/tab/home");
-
+app.config(function($ionicConfigProvider) {
     $ionicConfigProvider.tabs.style('standard');
     $ionicConfigProvider.tabs.position('bottom');
 });
