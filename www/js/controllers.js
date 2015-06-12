@@ -31,3 +31,9 @@ app.controller('HomeCtrl', function(app, $scope, $location) {
 
     loadPage();
 });
+
+app.controller('AboutCtrl', function($scope) {
+    $scope.openUrl = function(url) {
+        window.open(url, '_system');
+    }
+});

@@ -24,7 +24,7 @@ app.run(function($ionicPlatform, app, restAPI, toast, urlParams) {
     app.urlParams = urlParams;
 })
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $stateProvider
         .state('tabs', {
             url: "/tab",
@@ -40,6 +40,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('tabs.about', {
+            url: '/about',
+            views: {
+                'about-tab': {
+                    templateUrl: 'tabs/about.html',
+                    controller: 'AboutCtrl'
+                }
+            }
+        })
 
     $urlRouterProvider.otherwise("/tab/home");
+
+    $ionicConfigProvider.tabs.position('bottom');
 });

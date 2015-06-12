@@ -11,6 +11,7 @@ install:
 
 	cordova plugin add com.ionic.keyboard
 	cordova plugin add cordova-plugin-splashscreen
+	cordova plugin add cordova-plugin-inappbrowser
 
 release:
 	ionic build --release android
