@@ -1,7 +1,6 @@
-<ion-view view-title="TautApp">
+<ion-view>
+    <ion-nav-title>{{ image.user.name }}</ion-nav-title>
     <ion-content>
-        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-
         <div class="list card" ng-if="images.length <= 0">
             <div class="item item-body text-center">
                 <div class="spinner">
@@ -14,24 +13,23 @@
             </div>
         </div>
 
-        <div class="list card" ng-repeat="image in images">
+        <div class="list card">
             <div class="item">
                 <h2>{{ image.user.name }}</h2>
                 <p>@{{ image.user.screen_name }}</p>
             </div>
             <div class="item item-body">
-                <a href="#/tab/media/{{ image.id }}">
-                    <img class="full-image" ng-src="{{ image.media_url }}">
-                </a>
+                <img class="full-image" ng-src="{{ image.media_url }}">
                 <p>
                     {{ image.tweet.text }}
                 </p>
             </div>
         </div>
-        <div class="padding">
-            <button class="button button-full button-positive" ng-if="hasMore" ng-click="loadMore()" ng-disabled="loadingMore">
-                - Load more -
-            </button>
+
+        <div class="list card" ng-repeat="media in medias">
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{ media.media_url }}">
+            </div>
         </div>
     </ion-content>
 </ion-view>

@@ -1,6 +1,7 @@
 app.factory('restAPI', function(app, $resource) {
     return {
-        api: $resource(app.apiInfo.url + '/api'),
+        api  : $resource(app.apiInfo.url + '/api'),
+        media: $resource(app.apiInfo.url + '/api/media/detail/:id')
     }
 });
 

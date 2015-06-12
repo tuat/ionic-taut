@@ -5,6 +5,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             abstract: true,
             templateUrl: "partials/tabs.html"
         })
+
         .state('tabs.home', {
             url: '/home',
             views: {
@@ -14,6 +15,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('tabs.media', {
+            url: '/media/:id',
+            views: {
+                'home-tab': {
+                    templateUrl: 'tabs/media.html',
+                    controller: 'MediaCtrl'
+                }
+            }
+        })
+
         .state('tabs.about', {
             url: '/about',
             views: {
