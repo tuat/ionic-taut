@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var replace = require('replace');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -50,3 +51,23 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('add-proxy', function() {
+  return replace({
+    regex: "http://tautapp.zeuik.com",
+    replacement: "http://localhost:8100",
+    paths: ['./www/js/app.js'],
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('remove-proxy', function() {
+  return replace({
+    regex: "http://localhost:8100",
+    replacement: "http://tautapp.zeuik.com",
+    paths: ['./www/js/app.js'],
+    recursive: false,
+    silent: false,
+  });
+})
