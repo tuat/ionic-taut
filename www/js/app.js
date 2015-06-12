@@ -52,5 +52,6 @@ app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     $urlRouterProvider.otherwise("/tab/home");
 
+    $ionicConfigProvider.tabs.style('standard');
     $ionicConfigProvider.tabs.position('bottom');
 });
