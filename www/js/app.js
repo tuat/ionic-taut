@@ -3,7 +3,7 @@ var app = angular.module('taut', ['ionic', 'ngResource'])
 app.constant('app', {
     version: Date.now(),
     apiInfo: {
-        url   : 'http://tautapp.zeuik.com',
+        url   : 'http://localhost:8100',
         token : 'zM17y8Qry99WOEsOz0pAUQmP_AXDVthN_Y-zb1AuC5w='
     }
 })
@@ -26,11 +26,20 @@ app.run(function($ionicPlatform, app, restAPI, toast, urlParams) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('home', {
-            url: '/',
-            templateUrl: 'partials/home.html',
-            controller: 'HomeCtrl'
+        .state('tabs', {
+            url: "/tab",
+            abstract: true,
+            templateUrl: "partials/tabs.html"
+        })
+        .state('tabs.home', {
+            url: '/home',
+            views: {
+                'home-tab': {
+                    templateUrl: 'tabs/home.html',
+                    controller: 'HomeCtrl'
+                }
+            }
         })
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/tab/home");
 });
