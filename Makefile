@@ -20,7 +20,9 @@ build:
 	ionic build
 
 run:
+	node_modules/.bin/gulp remove-proxy
 	ionic run
 
 server:
+	node_modules/.bin/gulp add-proxy
 	ionic serve
