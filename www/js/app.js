@@ -1,4 +1,4 @@
-var app = angular.module('taut', ['ionic', 'ngResource'])
+var app = angular.module('taut', ['ionic', 'ngCordova', 'ngResource'])
 
 app.constant('app', {
     version: Date.now(),

@@ -32,8 +32,17 @@ app.controller('HomeCtrl', function(app, $scope, $location) {
     loadPage();
 });
 
-app.controller('AboutCtrl', function($scope) {
+app.controller('AboutCtrl', function(app, $scope, $cordovaInAppBrowser) {
     $scope.openUrl = function(url) {
-        window.open(url, '_system');
+        $cordovaInAppBrowser
+            .open(url, '_system')
+            .then(
+                function(event) {
+                    // success
+                },
+                function(event) {
+                    app.toast.error('Can not open ' + url);
+                }
+            );
     }
 });
