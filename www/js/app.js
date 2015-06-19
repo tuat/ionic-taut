@@ -17,6 +17,39 @@ app.run(function($ionicPlatform, app, restAPI, toast, urlParams) {
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
+
+        if(window.AdMob) {
+            var adMobId = {
+                banner      : '',
+                interstitial: ''
+            };
+
+            if (/(android)/i.test(navigator.userAgent)) {
+                adMobId.banner       = '__YOUR_BANNER_KEY_';
+                adMobId.interstitial = '__YOUR_INTERSTITIAL_KEY_'; // Full Page
+            }
+
+            if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+                adMobId.banner       = '';
+                adMobId.interstitial = '';
+            }
+
+            AdMob.createBanner({
+                adId        : adMobId.banner,
+                isTesting   : true,
+                overlap     : false,
+                offsetTopBar: false,
+                position    : AdMob.AD_POSITION.BOTTOM_CENTER,
+                bgColor     : 'black'
+            });
+
+            AdMob.prepareInterstitial({
+                adId    : admobid.interstitial,
+                autoShow: true
+            });
+
+            console.log('AdMob is enabled', adMobId);
+        }
     });
 
     app.restAPI   = restAPI;
