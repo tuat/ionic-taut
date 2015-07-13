@@ -4,7 +4,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://tautapp.zeuik.com/api"
+      "proxyUrl": "https://www.tautr.com/api"
     }
   ]
 }
