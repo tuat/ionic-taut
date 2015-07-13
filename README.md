@@ -11,6 +11,20 @@ Install Android SDK
 
     /path/to/android/sdk/tools/android
 
+Edit
+
+    vim www/js/app.js
+
+    token : '__YOUR_TOKEN_';
+
+    adMobId.banner       = '__YOUR_BANNER_KEY_';
+    adMobId.interstitial = '__YOUR_INTERSTITIAL_KEY_'; // Full Page
+
+Run
+
+    export ANDROID_HOME=/path/to/android/sdk/tools/android/SDK
+    make run
+
 Error fix
 
     ? Cannot read property 'Keyboard' of undefined
